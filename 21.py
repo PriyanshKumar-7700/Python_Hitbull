@@ -1,0 +1,88 @@
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def mergeTwoLists(self, l1, l2):
+        s = e = None
+        while l1 and l2:
+            if l1.val < l2.val:
+                temp = l1
+                l1 = l1.next
+                temp.next = None
+                if s == None:
+                    s = e = temp
+                else:
+                    e.next = temp
+                    e = temp
+            else:
+                temp = l2
+                l2 = l2.next
+                temp.next = None
+                if s == None:
+                    s = e = temp
+                else:
+                    e.next = temp
+                    e = temp
+        while l1:
+            temp = l1
+            l1 = l1.next
+            temp.next = None
+            if(s == None):
+                s = e = temp
+            else:
+                e.next = temp
+                e = temp
+        while l2:
+            temp = l2
+            l2 = l2.next
+            temp.next = None
+            if(s == None):
+                s = e = temp
+            else:
+                e.next = temp
+                e = temp
+        return s
+
+
+
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+# class Solution(object):
+#     def mergeTwoLists(self, l1, l2):
+#         s = e = None
+#         while l1 and l2:
+#             if l1.val < l2.val:
+#                 temp = l1
+#                 l1 = l1.next
+#                 temp.next = None
+#                 if s == None:
+#                     s = e = temp
+#                 else:
+#                     e.next = temp
+#                     e = temp
+#             else:
+#                 temp = l2
+#                 l2 = l2.next
+#                 temp.next = None
+#                 if s == None:
+#                     s = e = temp
+#                 else:
+#                     e.next = temp
+#                     e = temp            
+#         if l1:
+#             if s == None:
+#                 s = l1
+#             else:
+#                 e.next = l1       
+#         elif l2:
+#             if s == None:
+#                 s = l2
+#             else:
+#                 e.next = l2
+#         return s

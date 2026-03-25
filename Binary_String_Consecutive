@@ -1,0 +1,23 @@
+def countRecur(i, n):
+  
+    # Base case
+    if i >= n:
+        return 1
+
+    # If we take 1 at ith index, 
+    # we cannot have 1 at (i-1)
+    take = countRecur(i + 2, n)
+
+    # If we skip 1, we can consider
+    # 1 at i-1.
+    noTake = countRecur(i + 1, n)
+
+    return take + noTake
+
+def countStrings(n):
+    return countRecur(0, n)
+
+if __name__ == "__main__":
+    n = 3
+    print(countStrings(n))
+    
